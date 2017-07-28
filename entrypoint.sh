@@ -24,7 +24,7 @@ cd /home/container/server
 export USER_ID=$(id -u)
 export GROUP_ID=$(id -g)
 envsubst < /passwd.template > ${NSS_WRAPPER_PASSWD}
-export LD_PRELOAD=/libnss_wrapper.so
+export LD_PRELOAD=/libnss_wrapper.so.64
 
 # Run the Server
 ${MODIFIED_STARTUP}
