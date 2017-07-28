@@ -28,7 +28,7 @@ USER        container
 ENV         HOME /home/container
 WORKDIR     /home/container
 
-COPY		./preflight.sh 		   /home/container/
+COPY		./preflight.sh 		   /home/container/preflight.sh
 COPY 	    ./libnss_wrapper.32.so /libnss_wrapper.32.so
 COPY        ./libnss_wrapper.64.so /libnss_wrapper.64.so
 COPY        ./entrypoint.sh /entrypoint.sh
