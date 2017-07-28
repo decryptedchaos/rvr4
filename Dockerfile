@@ -29,6 +29,6 @@ ENV         HOME /home/container
 WORKDIR     /home/container
 
 COPY 	    ./libnss_wrapper.32.so /libnss_wrapper.32.so
-COPY        ./libnss_wrapper.64.so /libnss_wrapper.32.so
+COPY        ./libnss_wrapper.64.so /libnss_wrapper.64.so
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         ["/bin/bash", "/entrypoint.sh"]
