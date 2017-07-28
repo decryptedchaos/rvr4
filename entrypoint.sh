@@ -26,7 +26,7 @@ BIT=$(getconf LONG_BIT)
 export USER_ID=$(id -u)
 export GROUP_ID=$(id -g)
 envsubst < /passwd.template > ${NSS_WRAPPER_PASSWD}
-export LD_PRELOAD=/libnss_wrapper.so.${BIT}
+#export LD_PRELOAD=/libnss_wrapper.so.${BIT}
 
 # Run the Server
 ${MODIFIED_STARTUP}
