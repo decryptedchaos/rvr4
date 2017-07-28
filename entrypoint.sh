@@ -20,7 +20,7 @@ echo "~/server: ${MODIFIED_STARTUP}"
 
 cd /home/container/server
 
-BIT=getconf LONG_BIT
+BIT=$(getconf LONG_BIT)
 
 # $NSS_WRAPPER_PASSWD and $NSS_WRAPPER_GROUP have been set by the Dockerfile
 export USER_ID=$(id -u)
