@@ -14,6 +14,10 @@ if [[ -f /home/container/preflight.sh ]]; then
 	/home/container/preflight.sh
 fi
 
+if [[ ! -d /home/container/server/.local ]]; then 
+	mkdir -p /home/container/server/.local/share
+	fi
+ 
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 echo "~/server: ${MODIFIED_STARTUP}"
