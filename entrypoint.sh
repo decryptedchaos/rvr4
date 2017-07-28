@@ -1,9 +1,5 @@
 #!/bin/bash
 sleep 2
-mv /libnss_wrapper.so  /libnss_wrapper.so.32
-mv /usr/lib/libnss_wrapper.so /libnss_wrapper.so
-mkdir -p /home/container/.local/share
-mkdir -p /home/container/server/cfg
 
 #Install the Server
 if [[ ! -d /home/container/server ]] || [[ ${UPDATE} == "1" ]]; then
