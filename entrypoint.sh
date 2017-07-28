@@ -14,8 +14,8 @@ if [[ -f /home/container/preflight.sh ]]; then
 	/home/container/preflight.sh
 fi
 
-if [[ ! -d /home/container/server/.local ]]; then 
-	mkdir -p /home/container/server/.local/share
+if [[ ! -d /home/container/.local ]]; then 
+	mkdir -p /home/container/.local/share
 	fi
  
 # Replace Startup Variables
