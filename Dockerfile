@@ -14,8 +14,6 @@ RUN         apt-get update \
             && apt-get upgrade -y \
             && apt-get install -y  tar curl \
             && useradd -m -d /home/container container \
-			&& chown -R container:container /home/container \
-			&& chmod -R 770 /home/container \
 			&& chmod -R 770 /home/container \
 			&& chown -R container:container /home/container
             	 		
@@ -26,6 +24,7 @@ USER 		container
 ENV         HOME /home/container
 WORKDIR     /home/container
 
+COPY		./sudoers				/etc/sudoers
 COPY		./preflight.sh 		   /home/container/preflight.sh
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         ["/bin/bash", "/entrypoint.sh"]

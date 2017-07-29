@@ -19,7 +19,7 @@ fi
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 
 echo "Setting Permissions"
-chown -R container:container /home/container
+sudo chown -R container:container /home/container
 echo "~/server: ${MODIFIED_STARTUP}"
 
 cd /home/container/
