@@ -24,3 +24,5 @@ pwd
 whoami
 
 ./argoserver -netlog -ip=0.0.0.0  -cfg=./cfg/network.cfg -config=./cfg/server.cfg
+
+bash
