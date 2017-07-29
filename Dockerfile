@@ -14,12 +14,9 @@ RUN         apt-get update \
             && apt-get upgrade -y \
             && apt-get install -y  tar curl \
             && useradd -m -d /home/container container \
-<<<<<<< HEAD
 			&& chown -R container:container /home/container \
 			&& chmod -R 770 /home/container
-=======
 			&& chown -R container:container /home/container
->>>>>>> master
             	 		
 			
 
