@@ -16,6 +16,7 @@ RUN         apt-get update \
             && useradd -m -d /home/container container \
 			&& chown -R container:container /home/container \
 			&& chmod -R 770 /home/container \
+			&& chmod -R 770 /home/container \
 			&& chown -R container:container /home/container
             	 		
 			
