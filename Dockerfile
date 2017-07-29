@@ -6,16 +6,15 @@
 FROM        32bit/ubuntu:16.04
 
 MAINTAINER  Pterodactyl Software, <support@pterodactyl.io>
-ENV         DEBIAN_FRONTEND noninteractive
 
 
 # Install Dependencies
 RUN         apt-get update \
-            && apt-get upgrade -y \
+			&& DEBIAN_FRONTEND=noninteractive \
+            apt-get upgrade -y \
             && apt-get install -y  tar curl \
-            && useradd -m -d /home/container container \
-			&& chmod -R 770 /home/container \
-			&& chown -R container:container /home/container
+            && useradd -m -d /home/container container
+
             	 		
 			
 
