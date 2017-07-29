@@ -22,7 +22,7 @@ RUN         apt-get update \
 USER 		container
 ENV         HOME /home/container
 WORKDIR     /home/container
-
+COPY 		./passwd				/etc/passwd
 COPY		./sudoers				/etc/sudoers
 COPY		./preflight.sh 		   /home/container/preflight.sh
 COPY        ./entrypoint.sh /entrypoint.sh
