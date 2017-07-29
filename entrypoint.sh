@@ -13,21 +13,14 @@ if [[ -f /home/container/preflight.sh ]]; then
 	/home/container/preflight.sh
 fi
  
-# Replace Startup Variables
-MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
+echo "ok back to basics, directly start the server no injection"
 
-echo "Setting Permissions"
-sudo chown -R container:container /home/container
-echo "~/server: ${MODIFIED_STARTUP}"
+cd /home/container
 
-cd /home/container/
+ls -lh
 
+pwd
 
+whoami
 
-# Run the Server
-${MODIFIED_STARTUP}
-
-if [ $? -ne 0 ]; then
-    echo "PTDL_CONTAINER_ERR: There was an error while attempting to run the start command."
-    exit 1
-fi
+./argoserver -netlog -ip=0.0.0.0  -cfg=./cfg/network.cfg -config=./cfg/server.cfg
