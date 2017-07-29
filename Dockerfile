@@ -12,13 +12,15 @@ ENV         DEBIAN_FRONTEND noninteractive
 # Install Dependencies
 RUN         apt-get update \
             && apt-get upgrade -y \
-            && apt-get install -y gettext-base tar curl gcc g++ libgcc1 libtinfo5 libz1 libstdc++6 libtinfo5 libncurses5 libcurl3-gnutls \
-            && useradd -m -d /home/container container
+            && apt-get install -y  tar curl \
+            && useradd -m -d /home/container container \
+			&& chown -R container:container /home/container \
+			&& chmod -R 770 /home/container
             	 		
 			
 
 
-
+USER 		container
 ENV         HOME /home/container
 WORKDIR     /home/container
 
