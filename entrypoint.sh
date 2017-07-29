@@ -1,8 +1,8 @@
 #!/bin/bash
-sleep 2
+sleep 4
 
 #Install the Server
-if [[ ! -d /home/container/server ]] || [[ ${UPDATE} == "1" ]]; then
+if [[ ! -d /home/container ]] || [[ ${UPDATE} == "1" ]]; then
 	if [[ -f /home/container/steam.txt ]]; then
 		/home/container/steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +force_install_dir /home/container/server +app_update ${APP_ID} validate +runscript /home/container/steam.txt
 	else
@@ -13,16 +13,12 @@ fi
 if [[ -f /home/container/preflight.sh ]]; then
 	/home/container/preflight.sh
 fi
-
-if [[ ! -d /home/container/.local ]]; then 
-	mkdir -p /home/container/.local/share
-	fi
  
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 echo "~/server: ${MODIFIED_STARTUP}"
 
-cd /home/container/server
+cd /home/container/
 
 
 

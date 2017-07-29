@@ -1,3 +1,11 @@
-if [[ ! -d /home/container/server/cfg ]]; then 
-	mkdir -p /home/container/server/cfg
+#!/bin/bash
+
+if [[ ! -d /home/container/.local ]]; then 
+	mkdir -p /home/container/.local/share
 	fi
+
+
+if [[ ! -d /home/container/cfg ]]; then 
+	mkdir -p /home/container/cfg
+	fi
+	
