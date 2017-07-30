@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ash
 sleep 4
 #Install the Server
 if [[ ! -f /home/container/steam_appid.txt ]] || [[ ${UPDATE} == "1" ]]; then

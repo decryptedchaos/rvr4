@@ -1,29 +1,26 @@
 # ----------------------------------
-# Pterodactyl Dockerfile
-# Environment: RVR4
+# Pterodactyl Core Dockerfile
+# Environment: glibc
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM        32bit/ubuntu:16.04
+FROM        frolvlad/alpine-glibc
 
 MAINTAINER  Pterodactyl Software, <support@pterodactyl.io>
 
+RUN         apk update \
+            && apk upgrade \
+            && apk add --no-cache curl ca-certificates openssl tar \
+            && adduser -D -h /home/container container
 
-# Install Dependencies
-RUN         apt-get update \
-			&& DEBIAN_FRONTEND=noninteractive \
-            apt-get upgrade -y \
-            && apt-get install -y  tar curl \
-            && useradd -m -d /home/container container
-
-            	 		
-			
-
-
-USER 		container
-ENV         HOME /home/container
+USER        container
+ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
-COPY 		./passwd				/etc/passwd
-COPY		./sudoers				/etc/sudoers
-COPY		./preflight.sh 		   /home/container/preflight.sh
-COPY        ./entrypoint.sh /entrypoint.sh
-CMD         ["/bin/bash", "/entrypoint.sh"]
+
+COPY ./preflight.sh  /home/container/preflight.sh
+COPY ./entrypoint.sh /entrypoint.sh
+CMD ["/bin/ash", "/entrypoint.sh"]
+
+
+
+
+
