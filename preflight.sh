@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 if [[ -f /home/container/argoserver ]]; then
 	chmod a+x /home/container/argoserver
