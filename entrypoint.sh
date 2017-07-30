@@ -16,13 +16,10 @@ fi
 # Replace Startup Variables
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 
-echo "Setting Permissions"
-sudo chown -R container:container /home/container
+
 echo "~/server: ${MODIFIED_STARTUP}"
 
 cd /home/container/
-
-
 
 # Run the Server
 ${MODIFIED_STARTUP}
