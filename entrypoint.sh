@@ -21,10 +21,11 @@ echo "~/server: ${MODIFIED_STARTUP}"
 # Create some folders per the linux install guide
 mkdir -p /home/container/.local/share/Arma\ 3 && mkdir -p /home/container/.local/share/Arma\ 3\ -\ Other\ Profiles
 
-# Create symlink for MPMissions to solve random segfaults
-ln -s /home/container/server/mpmissions /home/container/server/MPMissions
-
 cd /home/container/server
+
+# Create symlink for MPMissions to solve random segfaults
+ln -s mpmissions MPMissions
+
 
 # $NSS_WRAPPER_PASSWD and $NSS_WRAPPER_GROUP have been set by the Dockerfile
 export USER_ID=$(id -u)
