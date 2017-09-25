@@ -24,7 +24,7 @@ mkdir -p /home/container/.local/share/Arma\ 3 && mkdir -p /home/container/.local
 cd /home/container/server
 
 # Create symlink for MPMissions to solve random segfaults
-ln -s mpmissions MPMissions
+mkdir -p /home/container/server/MPMissions
 
 
 # $NSS_WRAPPER_PASSWD and $NSS_WRAPPER_GROUP have been set by the Dockerfile
