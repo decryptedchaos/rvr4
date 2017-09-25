@@ -12,10 +12,9 @@ ENV         NSS_WRAPPER_PASSWD /tmp/passwd
 ENV         NSS_WRAPPER_GROUP /tmp/group
 
 # Install Dependencies
-RUN         dpkg --add-architecture i386 \
-            && apt-get update \
+RUN         apt-get update \
             && apt-get upgrade -y \
-            && apt-get install -y libnss-wrapper gettext-base tar curl gcc g++ lib32gcc1 lib32tinfo5 lib32z1 lib32stdc++6 libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386 \
+            && apt-get install -y libnss-wrapper gettext-base tar curl gcc g++ libgcc1 libtinfo5 libz1 libstdc++6 libtinfo5 libncurses5 libcurl3-gnutls \
             && useradd -m -d /home/container -s /bin/bash container \
             && touch ${NSS_WRAPPER_PASSWD} ${NSS_WRAPPER_GROUP} \
             && chgrp 0 ${NSS_WRAPPER_PASSWD} ${NSS_WRAPPER_GROUP} \
